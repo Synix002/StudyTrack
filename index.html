@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#07110e">
+    <title>Study Track — Суралцах аялал</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+    <aside class="sidebar">
+        <a class="brand" href="#home" data-page="home">
+            <span class="brand-mark">✦</span>
+            <span><strong>STUDY TRACK</strong><small>Суралцах аялал</small></span>
+        </a>
+
+        <div class="sidebar-label">WORKSPACE</div>
+        <nav class="navigation" aria-label="Үндсэн цэс">
+            <a href="#home" class="nav-link active" data-page="home"><span class="nav-icon">⌂</span><span>Нүүр</span></a>
+            <a href="#diary" class="nav-link" data-page="diary"><span class="nav-icon">▤</span><span>Миний тэмдэглэл</span></a>
+            <a href="#classes" class="nav-link" data-page="classes"><span class="nav-icon">▧</span><span>Хичээлүүд</span></a>
+            <a href="#timer" class="nav-link" data-page="timer"><span class="nav-icon">◷</span><span>Цаг хэмжигч</span></a>
+            <a href="#goals" class="nav-link" data-page="goals"><span class="nav-icon">✧</span><span>Миний зорилгууд</span></a>
+            <a href="#statistics" class="nav-link" data-page="statistics"><span class="nav-icon">▥</span><span>Статистик</span></a>
+            <a href="#flashcards" class="nav-link" data-page="flashcards"><span class="nav-icon">▣</span><span>Цээжлэх карт</span></a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-quote">
+                <span class="quote-star">✦</span>
+                <p>“Мэдлэг бол гэрэл,<br>тэвчээр бол түлхүүр.”</p>
+                <small>YOUR STUDY JOURNEY</small>
+            </div>
+            <a href="#settings" class="nav-link settings-link" data-page="settings"><span class="nav-icon">⚙</span><span>Тохиргоо</span></a>
+            <div class="sidebar-foot">© 2026 STUDY TRACK</div>
+        </div>
+    </aside>
+
+    <main class="main-area">
+        <header class="topbar">
+            <div>
+                <div class="eyebrow">ТАНЫ СУРАЛЦАХ ОРЧИН</div>
+                <h1 id="pageTitle">STUDY TRACK / НҮҮР</h1>
+            </div>
+            <div class="topbar-right">
+                <div class="date-chip"><span>✧</span><span id="today">Өнөөдөр</span></div>
+                <div class="avatar" id="avatarInitial">S</div>
+            </div>
+        </header>
+
+        <div class="viewport">
+            <!-- 1. HOME -->
+            <section class="page-view active" id="home">
+                <div class="welcome-banner">
+                    <div class="welcome-copy">
+                        <span class="gold-kicker">✦ ӨДӨР БҮРИЙН ЖИЖИГ АЛХАМ</span>
+                        <h2>Мэдлэгийнхээ <em>ертөнцөд</em><br>тавтай морил.</h2>
+                        <p>Өнөөдөр өөртөө цаг гарга. Таны зорилго нэг алхмаар ойртсоор байна.</p>
+                        <button class="btn btn-gold" data-go="timer">Хичээлээ эхлүүлэх <span>→</span></button>
+                    </div>
+                    <div class="welcome-art" aria-hidden="true">
+                        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+                        <div class="book-symbol">✧</div>
+                        <div class="art-caption">DISCOVER · LEARN · GROW</div>
+                    </div>
+                </div>
+
+                <div class="section-heading">
+                    <div><span class="eyebrow">ТАНЫ ӨДӨР</span><h2>Суралцах тойм</h2></div>
+                    <span class="live-tag"><i></i> LIVE OVERVIEW</span>
+                </div>
+
+                <div class="stats-grid">
+                    <article class="stat-card"><div class="stat-top"><span>Нийт хичээллэсэн</span><span class="stat-icon">◷</span></div><strong id="sessions">0</strong><small>суралцах удаа</small></article>
+                    <article class="stat-card"><div class="stat-top"><span>Зарцуулсан хугацаа</span><span class="stat-icon">⌛</span></div><strong><span id="minutes">0</span><small class="unit"> мин</small></strong><small>нийт суралцсан хугацаа</small></article>
+                    <article class="stat-card"><div class="stat-top"><span>Миний хичээлүүд</span><span class="stat-icon">▧</span></div><strong id="subjectCount">0</strong><small>бүртгэсэн хичээл</small></article>
+                    <article class="stat-card"><div class="stat-top"><span>Миний зорилго</span><span class="stat-icon">✧</span></div><strong id="homeGoalCount">0</strong><small>идэвхтэй зорилго</small></article>
+                </div>
+
+                <div class="home-columns">
+                    <article class="panel recent-panel">
+                        <div class="panel-heading"><div><span class="eyebrow">СҮҮЛИЙН ҮЙЛ АЖИЛЛАГАА</span><h3>Суралцсан түүх</h3></div><button class="text-link" data-go="diary">Бүгдийг харах →</button></div>
+                        <div id="recent" class="recent-list"><p class="empty-state">Одоогоор бүртгэл байхгүй байна.</p></div>
+                    </article>
+                    <article class="panel quick-panel">
+                        <div class="panel-heading"><div><span class="eyebrow">ШУУРХАЙ ҮЙЛДЭЛ</span><h3>Юу хийх вэ?</h3></div></div>
+                        <button class="quick-action" data-go="diary"><span class="quick-icon">✎</span><span><b>Тэмдэглэл нэмэх</b><small>Өдрийн тэмдэглэлээ бичих</small></span><span class="quick-arrow">→</span></button>
+                        <button class="quick-action" data-go="classes"><span class="quick-icon">▧</span><span><b>Хичээл бүртгэх</b><small>Судлах хичээлээ нэмэх</small></span><span class="quick-arrow">→</span></button>
+                        <button class="quick-action" data-go="goals"><span class="quick-icon">✧</span><span><b>Зорилго төлөвлөх</b><small>Дараагийн алхмаа тодорхойлох</small></span><span class="quick-arrow">→</span></button>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 2. DIARY -->
+            <section class="page-view" id="diary">
+                <div class="page-intro"><div><span class="gold-kicker">✦ PERSONAL LOGBOOK</span><h2>Миний <em>тэмдэглэл</em></h2><p>Суралцсан мөч бүрээ хадгалж, ахиц дэвшлээ эргэн хараарай.</p></div><div class="intro-symbol">✎</div></div>
+                <div class="content-grid">
+                    <article class="panel form-panel">
+                        <div class="panel-heading"><div><span class="eyebrow">NEW ENTRY</span><h3>Шинэ тэмдэглэл</h3></div><span class="panel-symbol">✧</span></div>
+                        <form id="diaryForm" class="stack-form">
+                            <label>Гарчиг<input id="diaryTitle" type="text" placeholder="Жишээ: Математикийн давтлага" required></label>
+                            <label>Тэмдэглэл<textarea id="diaryNote" rows="4" placeholder="Өнөөдөр юу сурсан бэ?" required></textarea></label>
+                            <label>Хичээллэсэн хугацаа (минут)<input id="diaryMinutes" type="number" min="0" placeholder="30" required></label>
+                            <button class="btn btn-primary" type="submit">Тэмдэглэл хадгалах <span>→</span></button>
+                        </form>
+                    </article>
+                    <article class="panel list-panel"><div class="panel-heading"><div><span class="eyebrow">YOUR JOURNAL</span><h3>Өмнөх тэмдэглэлүүд</h3></div><span class="count-label">LOGBOOK</span></div><div id="diaryList" class="entry-list"></div></article>
+                </div>
+            </section>
+
+            <!-- 3. CLASSES -->
+            <section class="page-view" id="classes">
+                <div class="page-intro"><div><span class="gold-kicker">✦ YOUR LEARNING LIBRARY</span><h2>Миний <em>хичээлүүд</em></h2><p>Судлах хичээлүүдээ нэг дор бүртгэж, өөрийн сургалтын санг бүрдүүлээрэй.</p></div><div class="intro-symbol">▧</div></div>
+                <div class="content-grid">
+                    <article class="panel form-panel">
+                        <div class="panel-heading"><div><span class="eyebrow">ADD A SUBJECT</span><h3>Хичээл нэмэх</h3></div><span class="panel-symbol">✧</span></div>
+                        <form id="subjectForm" class="stack-form">
+                            <label>Хичээлийн нэр<input id="subjectName" type="text" placeholder="Жишээ: Англи хэл" required></label>
+                            <label>Тайлбар<textarea id="subjectDescription" rows="4" placeholder="Энэ хичээлээр юу сурах вэ?"></textarea></label>
+                            <button class="btn btn-primary" type="submit">Хичээл бүртгэх <span>→</span></button>
+                        </form>
+                        <div class="note-box"><span>✦</span><p>Энд бүртгэсэн хичээлүүд таны хувийн сургалтын санд хадгалагдана.</p></div>
+                    </article>
+                    <article class="panel list-panel"><div class="panel-heading"><div><span class="eyebrow">MY CURRICULUM</span><h3>Бүртгэсэн хичээлүүд</h3></div><span class="count-label">LIBRARY</span></div><div id="subjectList" class="entry-list"></div></article>
+                </div>
+            </section>
+
+            <!-- 4. TIMER -->
+            <section class="page-view" id="timer">
+                <div class="page-intro"><div><span class="gold-kicker">✦ DEEP FOCUS MODE</span><h2>Төвлөрөх <em>цаг</em></h2><p>Анхаарлаа нэг зүйлд төвлөрүүл. Үр дүн өөрөө бий болно.</p></div><div class="intro-symbol">◷</div></div>
+                <div class="timer-layout">
+                    <article class="panel timer-panel">
+                        <span class="eyebrow">POMODORO SESSION</span>
+                        <div class="timer-ring"><div class="timer-inner"><span id="timerMode">FOCUS TIME</span><strong id="timerDisplay">25:00</strong><small>МИНУТ : СЕКУНД</small></div></div>
+                        <div class="timer-status" id="timerStatus">Эхлэхэд бэлэн байна.</div>
+                        <div class="timer-buttons"><button class="btn btn-primary" id="startTimer">Эхлүүлэх</button><button class="btn btn-outline" id="pauseTimer">Түр зогсоох</button><button class="btn btn-quiet" id="resetTimer">Дахин эхлүүлэх</button></div>
+                    </article>
+                    <aside class="timer-side">
+                        <article class="panel duration-panel"><span class="eyebrow">QUICK SESSION</span><h3>Хугацаа сонгох</h3><p>Өөрийн хэмнэлд тохирсон хугацаагаа сонгоорой.</p><div class="duration-options"><button class="duration-btn" data-minutes="2">02 <small>мин</small></button><button class="duration-btn" data-minutes="10">10 <small>мин</small></button><button class="duration-btn selected" data-minutes="25">25 <small>мин</small></button><button class="duration-btn" data-minutes="45">45 <small>мин</small></button></div></article>
+                        <article class="panel focus-tip"><span class="tip-star">✦</span><h3>Төвлөрөх зөвлөгөө</h3><p>Утсаа хол тавьж, нэг зорилго сонгоод зөвхөн түүндээ анхаарлаа хандуулаарай. Богино завсарлага ч үр дүнтэй.</p></article>
+                    </aside>
+                </div>
+            </section>
+
+            <!-- 5. GOALS -->
+            <section class="page-view" id="goals">
+                <div class="page-intro"><div><span class="gold-kicker">✦ DREAMS INTO PLANS</span><h2>Миний <em>зорилгууд</em></h2><p>Том мөрөөдлөө жижиг, хэрэгжүүлж болох алхмуудад хуваагаарай.</p></div><div class="intro-symbol">✧</div></div>
+                <div class="content-grid">
+                    <article class="panel form-panel">
+                        <div class="panel-heading"><div><span class="eyebrow">SET A MILESTONE</span><h3>Шинэ зорилго</h3></div><span class="panel-symbol">✦</span></div>
+                        <form id="goalForm" class="stack-form">
+                            <label>Зорилгын нэр<input id="goalName" type="text" placeholder="Жишээ: IELTS 6.5 авах" required></label>
+                            <label>Дуусгах хугацаа<input id="goalDate" type="date" required></label>
+                            <button class="btn btn-primary" type="submit">Зорилго хадгалах <span>→</span></button>
+                        </form>
+                        <div class="note-box"><span>✧</span><p>Зорилгоо тодорхой хугацаатай төлөвлөх нь ахиц дэвшлээ хянахад тусална.</p></div>
+                    </article>
+                    <article class="panel list-panel"><div class="panel-heading"><div><span class="eyebrow">YOUR MILESTONES</span><h3>Төлөвлөсөн зорилгууд</h3></div><span class="count-label">GOALS</span></div><div id="goalList" class="entry-list"></div></article>
+                </div>
+            </section>
+
+            <!-- 6. STATISTICS -->
+            <section class="page-view" id="statistics">
+                <div class="page-intro"><div><span class="gold-kicker">✦ PROGRESS & INSIGHTS</span><h2>Таны <em>статистик</em></h2><p>Өөрийн суралцах дадал, зарцуулсан цаг болон ахицаа ажиглаарай.</p></div><div class="intro-symbol">▥</div></div>
+                <div class="stats-grid large-stats">
+                    <article class="stat-card"><div class="stat-top"><span>Нийт хичээллэсэн удаа</span><span class="stat-icon">◷</span></div><strong id="statSessions">0</strong><small>бүртгэгдсэн session</small></article>
+                    <article class="stat-card"><div class="stat-top"><span>Нийт хугацаа</span><span class="stat-icon">⌛</span></div><strong><span id="statMinutes">0</span><small class="unit"> минут</small></strong><small>суралцахад зарцуулсан</small></article>
+                    <article class="stat-card"><div class="stat-top"><span>Бүртгэсэн хичээл</span><span class="stat-icon">▧</span></div><strong id="statSubjects">0</strong><small>сургалтын сан</small></article>
+                    <article class="stat-card"><div class="stat-top"><span>Биелүүлэх зорилго</span><span class="stat-icon">✧</span></div><strong id="statGoals">0</strong><small>төлөвлөсөн зорилго</small></article>
+                </div>
+                <article class="panel insight-panel"><div class="panel-heading"><div><span class="eyebrow">YOUR LEARNING RECORD</span><h3>Суралцах ахицын мэдээлэл</h3></div><span class="count-label">INSIGHTS</span></div><div id="statisticsDetails" class="insight-content"><p>Таны бүртгэлүүд энд харагдана. Тэмдэглэл болон цаг хэмжигч ашиглаж эхлээрэй.</p></div></article>
+            </section>
+
+            <!-- 7. FLASHCARDS -->
+            <section class="page-view" id="flashcards">
+                <div class="page-intro"><div><span class="gold-kicker">✦ ACTIVE RECALL STUDIO</span><h2>Цээжлэх <em>картууд</em></h2><p>Асуулт, хариултаа үүсгэж мэдлэгээ давтан сэргээгээрэй.</p></div><div class="intro-symbol">▣</div></div>
+                <div class="content-grid">
+                    <article class="panel form-panel">
+                        <div class="panel-heading"><div><span class="eyebrow">CREATE A FLASHCARD</span><h3>Карт үүсгэх</h3></div><span class="panel-symbol">✧</span></div>
+                        <form id="flashForm" class="stack-form">
+                            <label>Асуулт<input id="question" type="text" placeholder="Жишээ: HTML гэж юу вэ?" required></label>
+                            <label>Хариулт<textarea id="answer" rows="4" placeholder="Хариултаа бичнэ үү..." required></textarea></label>
+                            <button class="btn btn-primary" type="submit">Карт хадгалах <span>→</span></button>
+                        </form>
+                    </article>
+                    <article class="panel list-panel"><div class="panel-heading"><div><span class="eyebrow">YOUR MEMORY DECK</span><h3>Миний картууд</h3></div><span class="count-label">FLASHCARDS</span></div><div id="flashList" class="entry-list"></div></article>
+                </div>
+            </section>
+
+            <!-- 8. SETTINGS -->
+<section class="page-view settings-page" id="settings">
+
+    <div class="page-heading">
+        <div>
+            <span class="eyebrow">✦ PERSONAL SPACE</span>
+            <h1>Хувийн <span>тохиргоо</span></h1>
+            <p>Study Track орчноо өөрийн суралцах хэв маягт тохируулаарай.</p>
+        </div>
+
+        <div class="settings-heading-icon">⚙</div>
+    </div>
+
+    <div class="settings-layout">
+
+        <!-- PROFILE -->
+        <div class="settings-card profile-card">
+            <div class="settings-card-heading">
+                <span class="settings-icon">♙</span>
+                <div>
+                    <h2>Хэрэглэгчийн мэдээлэл</h2>
+                    <p>Өөрийн профайлыг шинэчлэх</p>
+                </div>
+            </div>
+
+            <div class="profile-avatar" id="profileAvatar">S</div>
+
+            <form id="profileForm">
+                <label for="profileName">Таны нэр</label>
+                <input
+                    type="text"
+                    id="profileName"
+                    placeholder="Нэрээ оруулна уу"
+                    required
+                >
+
+                <p id="profileMessage" class="settings-message"></p>
+
+                <button type="submit" class="settings-button">
+                    Мэдээлэл хадгалах
+                </button>
+            </form>
+
+            <div class="profile-note">
+                ✦ Таны нэр нүүр хуудасны мэндчилгээнд харагдана.
+            </div>
+        </div>
+
+        <!-- STUDY PREFERENCES -->
+        <div class="settings-card">
+            <div class="settings-card-heading">
+                <span class="settings-icon">◷</span>
+                <div>
+                    <h2>Суралцах тохиргоо</h2>
+                    <p>Өдөр тутмын суралцах төлөвлөгөө</p>
+                </div>
+            </div>
+
+            <div class="setting-row">
+                <div>
+                    <strong>Өдрийн зорилтот хугацаа</strong>
+                    <p>Өдөрт суралцах минут</p>
+                </div>
+
+                <select id="dailyTarget">
+                    <option value="30">30 минут</option>
+                    <option value="60" selected>60 минут</option>
+                    <option value="90">90 минут</option>
+                    <option value="120">120 минут</option>
+                    <option value="180">180 минут</option>
+                </select>
+            </div>
+
+            <div class="setting-row">
+                <div>
+                    <strong>Төвлөрөх хугацаа</strong>
+                    <p>Цаг хэмжигчийн үргэлжлэх хугацаа</p>
+                </div>
+
+                <select id="focusDuration">
+                    <option value="15">15 минут</option>
+                    <option value="25" selected>25 минут</option>
+                    <option value="30">30 минут</option>
+                    <option value="45">45 минут</option>
+                    <option value="60">60 минут</option>
+                </select>
+            </div>
+
+            <div class="setting-row">
+                <div>
+                    <strong>Амрах хугацаа</strong>
+                    <p>Хичээлийн дараах богино завсарлага</p>
+                </div>
+
+                <select id="breakDuration">
+                    <option value="5" selected>5 минут</option>
+                    <option value="10">10 минут</option>
+                    <option value="15">15 минут</option>
+                </select>
+            </div>
+
+            <button type="button" class="settings-button" id="saveStudySettings">
+                Тохиргоо хадгалах
+            </button>
+
+            <p id="studySettingsMessage" class="settings-message"></p>
+        </div>
+
+        <!-- APPEARANCE -->
+        <div class="settings-card">
+            <div class="settings-card-heading">
+                <span class="settings-icon">✧</span>
+                <div>
+                    <h2>Гадаад үзэмж</h2>
+                    <p>Study Track-ийн өнгө төрх</p>
+                </div>
+            </div>
+
+            <div class="theme-preview">
+                <div class="theme-color emerald"></div>
+                <div class="theme-color gold"></div>
+                <div class="theme-color black"></div>
+
+                <div>
+                    <strong>Emerald & Gold</strong>
+                    <p>Dark Academia загвар</p>
+                </div>
+            </div>
+
+            <div class="setting-row">
+                <div>
+                    <strong>Гэрэлтүүлгийн эффект</strong>
+                    <p>Ногоон гэрэлтүүлэг</p>
+                </div>
+
+                <label class="switch">
+                    <input type="checkbox" id="glowToggle" checked>
+                    <span class="switch-slider"></span>
+                </label>
+            </div>
+
+            <div class="setting-row">
+                <div>
+                    <strong>Алтан өнгийн чимэглэл</strong>
+                    <p>Алтан хүрээ болон дүрс</p>
+                </div>
+
+                <label class="switch">
+                    <input type="checkbox" id="goldToggle" checked>
+                    <span class="switch-slider"></span>
+                </label>
+            </div>
+
+            <button type="button" class="settings-button" id="saveAppearance">
+                Үзэмж хадгалах
+            </button>
+
+            <p id="appearanceMessage" class="settings-message"></p>
+        </div>
+
+        <!-- DATA MANAGEMENT -->
+        <div class="settings-card">
+            <div class="settings-card-heading">
+                <span class="settings-icon">▤</span>
+                <div>
+                    <h2>Өгөгдлийн удирдлага</h2>
+                    <p>Хадгалсан мэдээллээ хянах</p>
+                </div>
+            </div>
+
+            <div class="data-statistics">
+                <div class="data-stat">
+                    <span>Тэмдэглэл</span>
+                    <strong id="settingsDiaryCount">0</strong>
+                </div>
+
+                <div class="data-stat">
+                    <span>Хичээл</span>
+                    <strong id="settingsSubjectCount">0</strong>
+                </div>
+
+                <div class="data-stat">
+                    <span>Зорилго</span>
+                    <strong id="settingsGoalCount">0</strong>
+                </div>
+
+                <div class="data-stat">
+                    <span>Цээжлэх карт</span>
+                    <strong id="settingsFlashCount">0</strong>
+                </div>
+            </div>
+
+            <div class="data-warning">
+                <strong>Анхааруулга</strong>
+                <p>Мэдээлэл устгавал буцаан сэргээх боломжгүй.</p>
+            </div>
+
+            <button type="button" class="settings-danger" id="clearStudyData">
+                Бүх суралцах мэдээлэл устгах
+            </button>
+        </div>
+
+        <!-- ABOUT -->
+        <div class="settings-card about-card">
+            <div class="settings-card-heading">
+                <span class="settings-icon">✦</span>
+                <div>
+                    <h2>Study Track-ийн тухай</h2>
+                    <p>Төслийн мэдээлэл</p>
+                </div>
+            </div>
+
+            <p class="about-description">
+                Study Track бол суралцах үйл явцаа төлөвлөх,
+                тэмдэглэл хөтлөх, цаг хэмжих болон хувийн ахиц
+                дэвшлээ хянахад зориулсан сургалтын менежментийн
+                веб прототип юм.
+            </p>
+
+            <div class="about-detail">
+                <span>Хувилбар</span>
+                <strong>1.0 Prototype</strong>
+            </div>
+
+            <div class="about-detail">
+                <span>Өгөгдөл хадгалалт</span>
+                <strong>Local Storage</strong>
+            </div>
+
+            <div class="about-detail">
+                <span>Өнгөний загвар</span>
+                <strong>Emerald & Gold</strong>
+            </div>
+
+            <div class="about-detail">
+                <span>Зориулалт</span>
+                <strong>Study Management</strong>
+            </div>
+        </div>
+
+    </div>
+</section>
+        </div>
+
+        <footer class="page-controls">
+            <div class="control-caption"><span class="control-dot"></span> YOUR JOURNEY, YOUR PACE</div>
+            <div class="control-actions"><button id="previousPage" class="page-arrow" aria-label="Өмнөх хуудас">←</button><span id="pageNumber">1 / 8</span><button id="nextPage" class="page-arrow" aria-label="Дараагийн хуудас">→</button></div>
+        </footer>
+    </main>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>
